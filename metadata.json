@@ -1,0 +1,8 @@
+{
+  "name": "Red Hand Solutions",
+  "description": "Premier digital solutions, mobile app development, and IT services agency platform.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
