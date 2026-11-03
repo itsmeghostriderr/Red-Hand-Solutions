@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode Core Colors */
+    --color-background: #F8FAFC;
+    --color-foreground: #0F172A;
+    --color-border: #E2E8F0;
+    --color-input: #FFFFFF;
+    --color-ring: #DC2626;
+    
+    /* Card Colors */
+    --color-card: #FFFFFF;
+    --color-card-foreground: #0F172A;
+    --color-popover: #FFFFFF;
+    --color-popover-foreground: #0F172A;
+    
+    /* Muted Colors */
+    --color-muted: #F1F5F9;
+    --color-muted-foreground: #64748B;
+    
+    /* Brand Colors - Dominant Red and White */
+    --color-primary: #0F172A;
+    --color-primary-foreground: #FFFFFF;
+    --color-secondary: #DC2626; /* Premium Red */
+    --color-secondary-foreground: #FFFFFF;
+    
+    /* State Colors */
+    --color-destructive: #EF4444;
+    --color-destructive-foreground: #FFFFFF;
+    --color-accent: #E11D48;
+    --color-accent-foreground: #FFFFFF;
+    --color-success: #10B981;
+    --color-success-foreground: #FFFFFF;
+    --color-warning: #F59E0B;
+    --color-warning-foreground: #FFFFFF;
+    --color-error: #EF4444;
+    --color-error-foreground: #FFFFFF;
+    
+    /* Text Colors */
+    --color-text-primary: #0F172A;
+    --color-text-secondary: #64748B;
+    
+    /* Surface Colors */
+    --color-surface: #FFFFFF;
+    --color-surface-foreground: #0F172A;
+    
+    /* Brand Specific */
+    --color-brand-red: #DC2626;
+    --color-brand-blue: #2563EB;
+    --color-brand-black: #0F172A;
+  }
+
+  .dark {
+    /* Dark Mode Core Colors - Deep obsidian with ruby red accents */
+    --color-background: #07080D;
+    --color-foreground: #F8FAFC;
+    --color-border: rgba(255, 255, 255, 0.12);
+    --color-input: #12141F;
+    --color-ring: #EF4444;
+    
+    /* Card Colors */
+    --color-card: rgba(18, 20, 31, 0.75);
+    --color-card-foreground: #F8FAFC;
+    --color-popover: #12141F;
+    --color-popover-foreground: #F8FAFC;
+    
+    /* Muted Colors */
+    --color-muted: rgba(255, 255, 255, 0.06);
+    --color-muted-foreground: #94A3B8;
+    
+    /* Brand Colors */
+    --color-primary: #FFFFFF;
+    --color-primary-foreground: #07080D;
+    --color-secondary: #EF4444;
+    --color-secondary-foreground: #FFFFFF;
+    
+    /* State Colors */
+    --color-destructive: #F87171;
+    --color-destructive-foreground: #07080D;
+    --color-accent: #F43F5E;
+    --color-accent-foreground: #FFFFFF;
+    --color-success: #34D399;
+    --color-success-foreground: #07080D;
+    --color-warning: #FBBF24;
+    --color-warning-foreground: #07080D;
+    --color-error: #F87171;
+    --color-error-foreground: #07080D;
+    
+    /* Text Colors */
+    --color-text-primary: #F8FAFC;
+    --color-text-secondary: #94A3B8;
+    
+    /* Surface Colors */
+    --color-surface: #12141F;
+    --color-surface-foreground: #F8FAFC;
+    
+    /* Brand Specific */
+    --color-brand-red: #EF4444;
+    --color-brand-blue: #3B82F6;
+    --color-brand-black: #07080D;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #FF1A2A 0%, #DC2626 50%, #EF4444 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-white {
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.75) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glow-red {
+    box-shadow: 0 0 35px -5px rgba(220, 38, 38, 0.45);
+  }
+  
+  .glow-red-lg {
+    box-shadow: 0 0 60px -10px rgba(239, 68, 68, 0.55);
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+  
+  .dark .glass-card {
+    background: rgba(18, 20, 31, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .glass-card-hover:hover {
+    transform: translateY(-4px);
+    border-color: rgba(239, 68, 68, 0.4);
+    box-shadow: 0 20px 40px -15px rgba(220, 38, 38, 0.15);
+  }
+  
+  .dark .glass-card-hover:hover {
+    border-color: rgba(239, 68, 68, 0.35);
+    box-shadow: 0 20px 40px -15px rgba(239, 68, 68, 0.25);
+  }
+
+  .shadow-brand {
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+  }
+  
+  .dark .shadow-brand {
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .shadow-brand-lg {
+    box-shadow: 0 12px 30px -4px rgba(220, 38, 38, 0.2);
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .transition-brand {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
